@@ -13,11 +13,9 @@ package com.java.ali;
  * 
  */
 public class App {
-//This is main class 
+
 	public static void main(String[] args) {
-		//Creating GnomeEngineering Object manager
 		GnomeEngineeringManager manager = new GnomeEngineeringManager();
-		//Calling operateDevice method using manager object
 		manager.operateDevice();
 	}
 }
