@@ -6,13 +6,11 @@ package com.java.ali;
  * Engineer interface expected by the client (GnomeEngineeringManager).
  * 
  */
-// This is adapter class
 public class GnomeEngineer implements Engineer {
 
 	private GoblinGlider glider;
 
 	public GnomeEngineer() {
-		// Create glider object for GnomeGlider.java class
 		glider = new GoblinGlider();
 	}
 
