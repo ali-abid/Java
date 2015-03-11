@@ -6,7 +6,7 @@ package com.java.ali;
  * 
  */
 public interface Engineer {
-	//If class implements this method then must use following method
+
 	void operateDevice();
 
 }
