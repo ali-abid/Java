@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename package &apos;src.main.java.com.iluwatar&apos; to &apos;com.java.ali&apos;&#x0D;&#x0A;- Original project: &apos;Practice&apos;&#x0D;&#x0A;- Original element: &apos;Practice/src/src.main.java.com.iluwatar&apos;&#x0D;&#x0A;- Renamed element: &apos;Practice/src/com.java.ali&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings&#x0D;&#x0A;- Rename subpackages of the package" description="Rename package &apos;src.main.java.com.iluwatar&apos;" flags="589830" hierarchical="true" id="org.eclipse.jdt.ui.rename.package" input="/src&lt;src.main.java.com.iluwatar" name="com.java.ali" qualified="false" references="true" stamp="1426074152356" textual="false" version="1.0"/>
-</session>
