@@ -1,1 +1,7 @@
-*.java
+#*.java
+.metadata/
+$.recommenders/
+$.settings/
+$bin/
+.classpath
+.project
