@@ -1,7 +1,7 @@
 #*.java
-$.metadata/
-$.recommenders/
-$.settings/
-bin/
-.classpath
-.project
+working-directory/.metadata/*
+working-directory/.recommenders/*
+working-directory/DesignPattern/.setting/*
+working-directory/DesignPattern/bin/*
+working-directory/DesignPattern/.classpath
+working-directory/DesignPattern/.project
