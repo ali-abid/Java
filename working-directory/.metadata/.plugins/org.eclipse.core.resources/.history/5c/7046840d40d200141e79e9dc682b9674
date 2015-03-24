@@ -1,0 +1,14 @@
+package com.adapter;
+
+public class GoblinGlider {
+	
+	public void start(){
+		System.out.println("Machine Start");
+	}
+	public void run(){
+		System.out.println("Machine is Running");
+	}
+	public void stop(){
+		System.out.println("Machine Stopped!");
+	}
+}

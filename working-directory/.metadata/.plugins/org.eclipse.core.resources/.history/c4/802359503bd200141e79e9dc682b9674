@@ -1,0 +1,13 @@
+package com.adapter;
+
+public class Manager implements Engineer{
+
+	
+	@Override
+	public void operateDevice() {
+		// TODO Auto-generated method stub
+		System.out.println("Engineer is ready");
+		
+	}
+
+}

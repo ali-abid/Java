@@ -1,0 +1,15 @@
+package com.adapter;
+
+public class Adapter implements Engineer{
+
+	public Adapter(){
+		GoblinGlider adaptee = new GoblinGlider();
+	}
+	
+	@Override
+	public void operateDevice() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}
