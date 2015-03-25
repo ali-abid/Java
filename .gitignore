@@ -12,8 +12,8 @@ working-directory/DesignPattern/.project
 
 #Ignore all files from Abstract-Interface folder except src folder
 
-working-directory/Abstract-Interface/.settings
-working-directory/Abstract-Interface/bin/*
-working-directory/Abstract-Interface/.classpath
-working-directory/Abstract-Interface/.project
-working-directory/Abstract-Interface/.gitignore
+working-directory/AbstractInterface/.settings
+working-directory/AbstractInterface/bin/*
+working-directory/AbstractInterface/.classpath
+working-directory/AbstractInterface/.project
+working-directory/AbstractInterface/.gitignore
