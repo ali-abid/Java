@@ -1,8 +1,18 @@
-#*.java
+
 working-directory/.metadata/*
 working-directory/.recommenders/*
-#working-directory/DesignPattern/.settings
+
+#Ignore all files from DesignPattern folder except src folder
+
+working-directory/DesignPattern/.settings
 working-directory/DesignPattern/bin/*
 working-directory/DesignPattern/.classpath
 working-directory/DesignPattern/.project
 
+
+#Ignore all files from Abstract-Interface folder except src folder
+
+working-directory/Abstract-Interface/.settings
+working-directory/Abstract-Interface/bin/*
+working-directory/Abstract-Interface/.classpath
+working-directory/Abstract-Interface/.project
