@@ -1,14 +1,18 @@
 package com.adapter;
 
 public class Adapter implements Engineer{
-	public GoblinGlider newdevice;
+
+	//Create NewMachine class object (this is adaptee class)
+	public NewMachine newmachine;
+	
 	public Adapter(){
-		newdevice = new GoblinGlider();
+		//instance object of adaptee class
+		newmachine = new NewMachine();
 	}
 	@Override
 	public void operateDevice() {
-		// TODO Auto-generated method stub
-		newdevice.start();
+		//call method from adaptee class
+		newmachine.newMachine();
 	}
 
 	
