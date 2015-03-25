@@ -16,3 +16,4 @@ working-directory/Abstract-Interface/.settings
 working-directory/Abstract-Interface/bin/*
 working-directory/Abstract-Interface/.classpath
 working-directory/Abstract-Interface/.project
+working-directory/Abstract-Interface/.gitignore
