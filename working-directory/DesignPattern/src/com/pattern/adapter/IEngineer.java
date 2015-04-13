@@ -2,5 +2,5 @@ package com.pattern.adapter;
 
 public interface IEngineer {
 
-	void department();
+	public void department();
 }
