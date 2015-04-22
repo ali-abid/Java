@@ -10,3 +10,10 @@ http://www.programmerinterview.com/index.php/java-questions/method-overriding-vs
 -JVM Architecture 
 
 http://www.javatpoint.com/internal-details-of-jvm 
+
+
+-JAVA Multi-threading 
+http://www.tutorialspoint.com/java/java_multithreading.htm 
+
+Simple Questions:
+http://www.javatpoint.com/java-programs 
