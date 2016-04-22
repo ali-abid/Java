@@ -1,1 +1,7 @@
+Java keywords
 
+-static
+--static instance variable
+---Memory efficient
+---Refer to common properties of all object.
+---static variable gets memory only once in class area at the time of class loading.
