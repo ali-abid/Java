@@ -2,6 +2,9 @@
 working-directory/.metadata/*
 working-directory/.recommenders/*
 
+Java_Fundamentals/.metadata/*
+
+
 #Ignore all files from DesignPattern folder except src folder
 
 working-directory/DesignPattern/.settings
