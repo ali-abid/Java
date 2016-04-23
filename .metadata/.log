@@ -1,0 +1,764 @@
+!SESSION 2016-04-23 19:27:41.508 -----------------------------------------------
+eclipse.buildId=4.4.2.M20150204-1700
+java.version=1.8.0_45
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_GB
+Framework arguments:  -product org.eclipse.epp.package.java.product -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product -data C:\Dev\workspace\Java -product org.eclipse.epp.package.java.product
+
+!ENTRY com.springsource.sts.bestpractices 4 0 2016-04-23 19:27:44.550
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: com.springsource.sts.bestpractices [488]
+  Unresolved requirement: Require-Bundle: com.springsource.sts.quickfix
+    -> Bundle-SymbolicName: com.springsource.sts.quickfix; bundle-version="2.9.2.201205071000-RELEASE"; singleton:="true"
+       com.springsource.sts.quickfix [503]
+         Unresolved requirement: Require-Bundle: com.springsource.sts.config.core
+           -> Bundle-SymbolicName: com.springsource.sts.config.core; bundle-version="2.9.2.201205071000-RELEASE"; singleton:="true"
+              com.springsource.sts.config.core [489]
+                Unresolved requirement: Require-Bundle: org.springframework.ide.eclipse.batch
+                  -> Bundle-SymbolicName: org.springframework.ide.eclipse.batch; bundle-version="3.7.2.201511260958-RELEASE"; singleton:="true"
+                     org.springframework.ide.eclipse.batch [678]
+                       No resolution report for the bundle.  Unresolved requirement: Require-Bundle: com.springsource.sts.config.core
+    -> Bundle-SymbolicName: com.springsource.sts.config.core; bundle-version="2.9.2.201205071000-RELEASE"; singleton:="true"
+  Bundle was not resolved because of a uses contraint violation.
+  org.osgi.service.resolver.ResolutionException: Uses constraint violation. Unable to resolve resource org.springframework.ide.eclipse.batch [osgi.identity; osgi.identity="org.springframework.ide.eclipse.batch"; type="osgi.bundle"; version:Version="3.7.2.201511260958-RELEASE"; singleton:="true"] because it is exposed to package 'org.springframework.beans' from resources org.springframework.beans [osgi.identity; osgi.identity="org.springframework.beans"; type="osgi.bundle"; version:Version="4.2.3.20151116-RELEASE"] and org.springframework.beans [osgi.identity; osgi.identity="org.springframework.beans"; type="osgi.bundle"; version:Version="3.1.1.RELEASE"] via two dependency chains.
+
+Chain 1:
+  org.springframework.ide.eclipse.batch [osgi.identity; osgi.identity="org.springframework.ide.eclipse.batch"; type="osgi.bundle"; version:Version="3.7.2.201511260958-RELEASE"; singleton:="true"]
+    import: (osgi.wiring.package=org.springframework.beans)
+     |
+    export: osgi.wiring.package: org.springframework.beans
+  org.springframework.beans [osgi.identity; osgi.identity="org.springframework.beans"; type="osgi.bundle"; version:Version="4.2.3.20151116-RELEASE"]
+
+Chain 2:
+  org.springframework.ide.eclipse.batch [osgi.identity; osgi.identity="org.springframework.ide.eclipse.batch"; type="osgi.bundle"; version:Version="3.7.2.201511260958-RELEASE"; singleton:="true"]
+    import: (osgi.wiring.package=org.springframework.transaction.support)
+     |
+    export: osgi.wiring.package=org.springframework.transaction.support; uses:=org.springframework.beans.factory
+  org.springframework.transaction [osgi.identity; osgi.identity="org.springframework.transaction"; type="osgi.bundle"; version:Version="3.1.1.RELEASE"]
+    import: (&(osgi.wiring.package=org.springframework.beans.factory)(&(version>=3.1.1)(!(version>=3.1.2))))
+     |
+    export: osgi.wiring.package: org.springframework.beans.factory; uses:=org.springframework.beans
+    export: osgi.wiring.package=org.springframework.beans
+  org.springframework.beans [osgi.identity; osgi.identity="org.springframework.beans"; type="osgi.bundle"; version:Version="3.1.1.RELEASE"]
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY com.springsource.sts.config.core 4 0 2016-04-23 19:27:44.921
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: com.springsource.sts.config.core [489]
+  Unresolved requirement: Require-Bundle: org.springframework.ide.eclipse.batch
+    -> Bundle-SymbolicName: org.springframework.ide.eclipse.batch; bundle-version="3.7.2.201511260958-RELEASE"; singleton:="true"
+       org.springframework.ide.eclipse.batch [678]
+         No resolution report for the bundle.  Bundle was not resolved because of a uses contraint violation.
+  org.osgi.service.resolver.ResolutionException: Uses constraint violation. Unable to resolve resource org.springframework.ide.eclipse.batch [osgi.identity; osgi.identity="org.springframework.ide.eclipse.batch"; type="osgi.bundle"; version:Version="3.7.2.201511260958-RELEASE"; singleton:="true"] because it is exposed to package 'org.springframework.beans' from resources org.springframework.beans [osgi.identity; osgi.identity="org.springframework.beans"; type="osgi.bundle"; version:Version="4.2.3.20151116-RELEASE"] and org.springframework.beans [osgi.identity; osgi.identity="org.springframework.beans"; type="osgi.bundle"; version:Version="3.1.1.RELEASE"] via two dependency chains.
+
+Chain 1:
+  org.springframework.ide.eclipse.batch [osgi.identity; osgi.identity="org.springframework.ide.eclipse.batch"; type="osgi.bundle"; version:Version="3.7.2.201511260958-RELEASE"; singleton:="true"]
+    import: (osgi.wiring.package=org.springframework.beans)
+     |
+    export: osgi.wiring.package: org.springframework.beans
+  org.springframework.beans [osgi.identity; osgi.identity="org.springframework.beans"; type="osgi.bundle"; version:Version="4.2.3.20151116-RELEASE"]
+
+Chain 2:
+  org.springframework.ide.eclipse.batch [osgi.identity; osgi.identity="org.springframework.ide.eclipse.batch"; type="osgi.bundle"; version:Version="3.7.2.201511260958-RELEASE"; singleton:="true"]
+    import: (osgi.wiring.package=org.springframework.transaction.support)
+     |
+    export: osgi.wiring.package=org.springframework.transaction.support; uses:=org.springframework.beans.factory
+  org.springframework.transaction [osgi.identity; osgi.identity="org.springframework.transaction"; type="osgi.bundle"; version:Version="3.1.1.RELEASE"]
+    import: (&(osgi.wiring.package=org.springframework.beans.factory)(&(version>=3.1.1)(!(version>=3.1.2))))
+     |
+    export: osgi.wiring.package: org.springframework.beans.factory; uses:=org.springframework.beans
+    export: osgi.wiring.package=org.springframework.beans
+  org.springframework.beans [osgi.identity; osgi.identity="org.springframework.beans"; type="osgi.bundle"; version:Version="3.1.1.RELEASE"]
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY com.springsource.sts.config.flow 4 0 2016-04-23 19:27:45.385
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: com.springsource.sts.config.flow [490]
+  Unresolved requirement: Require-Bundle: com.springsource.sts.config.core
+    -> Bundle-SymbolicName: com.springsource.sts.config.core; bundle-version="2.9.2.201205071000-RELEASE"; singleton:="true"
+       com.springsource.sts.config.core [489]
+         Unresolved requirement: Require-Bundle: org.springframework.ide.eclipse.batch
+           -> Bundle-SymbolicName: org.springframework.ide.eclipse.batch; bundle-version="3.7.2.201511260958-RELEASE"; singleton:="true"
+              org.springframework.ide.eclipse.batch [678]
+                No resolution report for the bundle.  Bundle was not resolved because of a uses contraint violation.
+  org.osgi.service.resolver.ResolutionException: Uses constraint violation. Unable to resolve resource org.springframework.ide.eclipse.batch [osgi.identity; osgi.identity="org.springframework.ide.eclipse.batch"; type="osgi.bundle"; version:Version="3.7.2.201511260958-RELEASE"; singleton:="true"] because it is exposed to package 'org.springframework.beans' from resources org.springframework.beans [osgi.identity; osgi.identity="org.springframework.beans"; type="osgi.bundle"; version:Version="4.2.3.20151116-RELEASE"] and org.springframework.beans [osgi.identity; osgi.identity="org.springframework.beans"; type="osgi.bundle"; version:Version="3.1.1.RELEASE"] via two dependency chains.
+
+Chain 1:
+  org.springframework.ide.eclipse.batch [osgi.identity; osgi.identity="org.springframework.ide.eclipse.batch"; type="osgi.bundle"; version:Version="3.7.2.201511260958-RELEASE"; singleton:="true"]
+    import: (osgi.wiring.package=org.springframework.beans)
+     |
+    export: osgi.wiring.package: org.springframework.beans
+  org.springframework.beans [osgi.identity; osgi.identity="org.springframework.beans"; type="osgi.bundle"; version:Version="4.2.3.20151116-RELEASE"]
+
+Chain 2:
+  org.springframework.ide.eclipse.batch [osgi.identity; osgi.identity="org.springframework.ide.eclipse.batch"; type="osgi.bundle"; version:Version="3.7.2.201511260958-RELEASE"; singleton:="true"]
+    import: (osgi.wiring.package=org.springframework.transaction.support)
+     |
+    export: osgi.wiring.package=org.springframework.transaction.support; uses:=org.springframework.beans.factory
+  org.springframework.transaction [osgi.identity; osgi.identity="org.springframework.transaction"; type="osgi.bundle"; version:Version="3.1.1.RELEASE"]
+    import: (&(osgi.wiring.package=org.springframework.beans.factory)(&(version>=3.1.1)(!(version>=3.1.2))))
+     |
+    export: osgi.wiring.package: org.springframework.beans.factory; uses:=org.springframework.beans
+    export: osgi.wiring.package=org.springframework.beans
+  org.springframework.beans [osgi.identity; osgi.identity="org.springframework.beans"; type="osgi.bundle"; version:Version="3.1.1.RELEASE"]
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY com.springsource.sts.config.ui 4 0 2016-04-23 19:27:45.787
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: com.springsource.sts.config.ui [491]
+  Unresolved requirement: Require-Bundle: com.springsource.sts.config.flow
+    -> Bundle-SymbolicName: com.springsource.sts.config.flow; bundle-version="2.9.2.201205071000-RELEASE"; singleton:="true"
+       com.springsource.sts.config.flow [490]
+         Unresolved requirement: Require-Bundle: com.springsource.sts.config.core
+           -> Bundle-SymbolicName: com.springsource.sts.config.core; bundle-version="2.9.2.201205071000-RELEASE"; singleton:="true"
+              com.springsource.sts.config.core [489]
+                Unresolved requirement: Require-Bundle: org.springframework.ide.eclipse.batch
+                  -> Bundle-SymbolicName: org.springframework.ide.eclipse.batch; bundle-version="3.7.2.201511260958-RELEASE"; singleton:="true"
+                     org.springframework.ide.eclipse.batch [678]
+                       No resolution report for the bundle.  Unresolved requirement: Require-Bundle: com.springsource.sts.ide.ui
+    -> Bundle-SymbolicName: com.springsource.sts.ide.ui; bundle-version="2.9.2.201205071000-RELEASE"; singleton:="true"
+       com.springsource.sts.ide.ui [500]
+         Unresolved requirement: Require-Bundle: com.springsource.sts.config.core
+           -> Bundle-SymbolicName: com.springsource.sts.config.core; bundle-version="2.9.2.201205071000-RELEASE"; singleton:="true"
+  Unresolved requirement: Require-Bundle: com.springsource.sts.wizard
+    -> Bundle-SymbolicName: com.springsource.sts.wizard; bundle-version="2.9.2.201205071000-RELEASE"; singleton:="true"
+       com.springsource.sts.wizard [517]
+         Unresolved requirement: Require-Bundle: com.springsource.sts.ide.ui
+           -> Bundle-SymbolicName: com.springsource.sts.ide.ui; bundle-version="2.9.2.201205071000-RELEASE"; singleton:="true"
+         Unresolved requirement: Require-Bundle: com.springsource.sts.config.core
+           -> Bundle-SymbolicName: com.springsource.sts.config.core; bundle-version="2.9.2.201205071000-RELEASE"; singleton:="true"
+         Unresolved requirement: Require-Bundle: com.springsource.sts.quickfix
+           -> Bundle-SymbolicName: com.springsource.sts.quickfix; bundle-version="2.9.2.201205071000-RELEASE"; singleton:="true"
+              com.springsource.sts.quickfix [503]
+                Unresolved requirement: Require-Bundle: com.springsource.sts.config.core
+                  -> Bundle-SymbolicName: com.springsource.sts.config.core; bundle-version="2.9.2.201205071000-RELEASE"; singleton:="true"
+  Unresolved requirement: Require-Bundle: com.springsource.sts.config.core
+    -> Bundle-SymbolicName: com.springsource.sts.config.core; bundle-version="2.9.2.201205071000-RELEASE"; singleton:="true"
+  Unresolved requirement: Require-Bundle: org.springframework.ide.eclipse.batch; bundle-version="2.8.0"
+    -> Bundle-SymbolicName: org.springframework.ide.eclipse.batch; bundle-version="3.7.2.201511260958-RELEASE"; singleton:="true"
+  Bundle was not resolved because of a uses contraint violation.
+  org.osgi.service.resolver.ResolutionException: Uses constraint violation. Unable to resolve resource org.springframework.ide.eclipse.batch [osgi.identity; osgi.identity="org.springframework.ide.eclipse.batch"; type="osgi.bundle"; version:Version="3.7.2.201511260958-RELEASE"; singleton:="true"] because it is exposed to package 'org.springframework.beans' from resources org.springframework.beans [osgi.identity; osgi.identity="org.springframework.beans"; type="osgi.bundle"; version:Version="4.2.3.20151116-RELEASE"] and org.springframework.beans [osgi.identity; osgi.identity="org.springframework.beans"; type="osgi.bundle"; version:Version="3.1.1.RELEASE"] via two dependency chains.
+
+Chain 1:
+  org.springframework.ide.eclipse.batch [osgi.identity; osgi.identity="org.springframework.ide.eclipse.batch"; type="osgi.bundle"; version:Version="3.7.2.201511260958-RELEASE"; singleton:="true"]
+    import: (osgi.wiring.package=org.springframework.beans)
+     |
+    export: osgi.wiring.package: org.springframework.beans
+  org.springframework.beans [osgi.identity; osgi.identity="org.springframework.beans"; type="osgi.bundle"; version:Version="4.2.3.20151116-RELEASE"]
+
+Chain 2:
+  org.springframework.ide.eclipse.batch [osgi.identity; osgi.identity="org.springframework.ide.eclipse.batch"; type="osgi.bundle"; version:Version="3.7.2.201511260958-RELEASE"; singleton:="true"]
+    import: (osgi.wiring.package=org.springframework.transaction.support)
+     |
+    export: osgi.wiring.package=org.springframework.transaction.support; uses:=org.springframework.beans.factory
+  org.springframework.transaction [osgi.identity; osgi.identity="org.springframework.transaction"; type="osgi.bundle"; version:Version="3.1.1.RELEASE"]
+    import: (&(osgi.wiring.package=org.springframework.beans.factory)(&(version>=3.1.1)(!(version>=3.1.2))))
+     |
+    export: osgi.wiring.package: org.springframework.beans.factory; uses:=org.springframework.beans
+    export: osgi.wiring.package=org.springframework.beans
+  org.springframework.beans [osgi.identity; osgi.identity="org.springframework.beans"; type="osgi.bundle"; version:Version="3.1.1.RELEASE"]
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY com.springsource.sts.ide.configurator 4 0 2016-04-23 19:27:46.097
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: com.springsource.sts.ide.configurator [496]
+  Unresolved requirement: Require-Bundle: com.springsource.sts.ide.ui
+    -> Bundle-SymbolicName: com.springsource.sts.ide.ui; bundle-version="2.9.2.201205071000-RELEASE"; singleton:="true"
+       com.springsource.sts.ide.ui [500]
+         Unresolved requirement: Require-Bundle: com.springsource.sts.config.core
+           -> Bundle-SymbolicName: com.springsource.sts.config.core; bundle-version="2.9.2.201205071000-RELEASE"; singleton:="true"
+              com.springsource.sts.config.core [489]
+                Unresolved requirement: Require-Bundle: org.springframework.ide.eclipse.batch
+                  -> Bundle-SymbolicName: org.springframework.ide.eclipse.batch; bundle-version="3.7.2.201511260958-RELEASE"; singleton:="true"
+                     org.springframework.ide.eclipse.batch [678]
+                       No resolution report for the bundle.  Bundle was not resolved because of a uses contraint violation.
+  org.osgi.service.resolver.ResolutionException: Uses constraint violation. Unable to resolve resource org.springframework.ide.eclipse.batch [osgi.identity; osgi.identity="org.springframework.ide.eclipse.batch"; type="osgi.bundle"; version:Version="3.7.2.201511260958-RELEASE"; singleton:="true"] because it is exposed to package 'org.springframework.beans' from resources org.springframework.beans [osgi.identity; osgi.identity="org.springframework.beans"; type="osgi.bundle"; version:Version="4.2.3.20151116-RELEASE"] and org.springframework.beans [osgi.identity; osgi.identity="org.springframework.beans"; type="osgi.bundle"; version:Version="3.1.1.RELEASE"] via two dependency chains.
+
+Chain 1:
+  org.springframework.ide.eclipse.batch [osgi.identity; osgi.identity="org.springframework.ide.eclipse.batch"; type="osgi.bundle"; version:Version="3.7.2.201511260958-RELEASE"; singleton:="true"]
+    import: (osgi.wiring.package=org.springframework.beans)
+     |
+    export: osgi.wiring.package: org.springframework.beans
+  org.springframework.beans [osgi.identity; osgi.identity="org.springframework.beans"; type="osgi.bundle"; version:Version="4.2.3.20151116-RELEASE"]
+
+Chain 2:
+  org.springframework.ide.eclipse.batch [osgi.identity; osgi.identity="org.springframework.ide.eclipse.batch"; type="osgi.bundle"; version:Version="3.7.2.201511260958-RELEASE"; singleton:="true"]
+    import: (osgi.wiring.package=org.springframework.transaction.support)
+     |
+    export: osgi.wiring.package=org.springframework.transaction.support; uses:=org.springframework.beans.factory
+  org.springframework.transaction [osgi.identity; osgi.identity="org.springframework.transaction"; type="osgi.bundle"; version:Version="3.1.1.RELEASE"]
+    import: (&(osgi.wiring.package=org.springframework.beans.factory)(&(version>=3.1.1)(!(version>=3.1.2))))
+     |
+    export: osgi.wiring.package: org.springframework.beans.factory; uses:=org.springframework.beans
+    export: osgi.wiring.package=org.springframework.beans
+  org.springframework.beans [osgi.identity; osgi.identity="org.springframework.beans"; type="osgi.bundle"; version:Version="3.1.1.RELEASE"]
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY com.springsource.sts.ide.help 4 0 2016-04-23 19:27:46.647
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: com.springsource.sts.ide.help [497]
+  Unresolved requirement: Require-Bundle: com.springsource.sts.ide.configurator; bundle-version="2.0.0"
+    -> Bundle-SymbolicName: com.springsource.sts.ide.configurator; bundle-version="2.9.2.201205071000-RELEASE"; singleton:="true"
+       com.springsource.sts.ide.configurator [496]
+         Unresolved requirement: Require-Bundle: com.springsource.sts.ide.ui
+           -> Bundle-SymbolicName: com.springsource.sts.ide.ui; bundle-version="2.9.2.201205071000-RELEASE"; singleton:="true"
+              com.springsource.sts.ide.ui [500]
+                Unresolved requirement: Require-Bundle: com.springsource.sts.config.core
+                  -> Bundle-SymbolicName: com.springsource.sts.config.core; bundle-version="2.9.2.201205071000-RELEASE"; singleton:="true"
+                     com.springsource.sts.config.core [489]
+                       Unresolved requirement: Require-Bundle: org.springframework.ide.eclipse.batch
+                         -> Bundle-SymbolicName: org.springframework.ide.eclipse.batch; bundle-version="3.7.2.201511260958-RELEASE"; singleton:="true"
+                            org.springframework.ide.eclipse.batch [678]
+                              No resolution report for the bundle.  Unresolved requirement: Require-Bundle: com.springsource.sts.ide.ui
+    -> Bundle-SymbolicName: com.springsource.sts.ide.ui; bundle-version="2.9.2.201205071000-RELEASE"; singleton:="true"
+  Bundle was not resolved because of a uses contraint violation.
+  org.osgi.service.resolver.ResolutionException: Uses constraint violation. Unable to resolve resource org.springframework.ide.eclipse.batch [osgi.identity; osgi.identity="org.springframework.ide.eclipse.batch"; type="osgi.bundle"; version:Version="3.7.2.201511260958-RELEASE"; singleton:="true"] because it is exposed to package 'org.springframework.beans' from resources org.springframework.beans [osgi.identity; osgi.identity="org.springframework.beans"; type="osgi.bundle"; version:Version="4.2.3.20151116-RELEASE"] and org.springframework.beans [osgi.identity; osgi.identity="org.springframework.beans"; type="osgi.bundle"; version:Version="3.1.1.RELEASE"] via two dependency chains.
+
+Chain 1:
+  org.springframework.ide.eclipse.batch [osgi.identity; osgi.identity="org.springframework.ide.eclipse.batch"; type="osgi.bundle"; version:Version="3.7.2.201511260958-RELEASE"; singleton:="true"]
+    import: (osgi.wiring.package=org.springframework.beans)
+     |
+    export: osgi.wiring.package: org.springframework.beans
+  org.springframework.beans [osgi.identity; osgi.identity="org.springframework.beans"; type="osgi.bundle"; version:Version="4.2.3.20151116-RELEASE"]
+
+Chain 2:
+  org.springframework.ide.eclipse.batch [osgi.identity; osgi.identity="org.springframework.ide.eclipse.batch"; type="osgi.bundle"; version:Version="3.7.2.201511260958-RELEASE"; singleton:="true"]
+    import: (osgi.wiring.package=org.springframework.transaction.support)
+     |
+    export: osgi.wiring.package=org.springframework.transaction.support; uses:=org.springframework.beans.factory
+  org.springframework.transaction [osgi.identity; osgi.identity="org.springframework.transaction"; type="osgi.bundle"; version:Version="3.1.1.RELEASE"]
+    import: (&(osgi.wiring.package=org.springframework.beans.factory)(&(version>=3.1.1)(!(version>=3.1.2))))
+     |
+    export: osgi.wiring.package: org.springframework.beans.factory; uses:=org.springframework.beans
+    export: osgi.wiring.package=org.springframework.beans
+  org.springframework.beans [osgi.identity; osgi.identity="org.springframework.beans"; type="osgi.bundle"; version:Version="3.1.1.RELEASE"]
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY com.springsource.sts.ide.ui 4 0 2016-04-23 19:27:46.892
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: com.springsource.sts.ide.ui [500]
+  Unresolved requirement: Require-Bundle: com.springsource.sts.config.core
+    -> Bundle-SymbolicName: com.springsource.sts.config.core; bundle-version="2.9.2.201205071000-RELEASE"; singleton:="true"
+       com.springsource.sts.config.core [489]
+         Unresolved requirement: Require-Bundle: org.springframework.ide.eclipse.batch
+           -> Bundle-SymbolicName: org.springframework.ide.eclipse.batch; bundle-version="3.7.2.201511260958-RELEASE"; singleton:="true"
+              org.springframework.ide.eclipse.batch [678]
+                No resolution report for the bundle.  Bundle was not resolved because of a uses contraint violation.
+  org.osgi.service.resolver.ResolutionException: Uses constraint violation. Unable to resolve resource org.springframework.ide.eclipse.batch [osgi.identity; osgi.identity="org.springframework.ide.eclipse.batch"; type="osgi.bundle"; version:Version="3.7.2.201511260958-RELEASE"; singleton:="true"] because it is exposed to package 'org.springframework.beans' from resources org.springframework.beans [osgi.identity; osgi.identity="org.springframework.beans"; type="osgi.bundle"; version:Version="4.2.3.20151116-RELEASE"] and org.springframework.beans [osgi.identity; osgi.identity="org.springframework.beans"; type="osgi.bundle"; version:Version="3.1.1.RELEASE"] via two dependency chains.
+
+Chain 1:
+  org.springframework.ide.eclipse.batch [osgi.identity; osgi.identity="org.springframework.ide.eclipse.batch"; type="osgi.bundle"; version:Version="3.7.2.201511260958-RELEASE"; singleton:="true"]
+    import: (osgi.wiring.package=org.springframework.beans)
+     |
+    export: osgi.wiring.package: org.springframework.beans
+  org.springframework.beans [osgi.identity; osgi.identity="org.springframework.beans"; type="osgi.bundle"; version:Version="4.2.3.20151116-RELEASE"]
+
+Chain 2:
+  org.springframework.ide.eclipse.batch [osgi.identity; osgi.identity="org.springframework.ide.eclipse.batch"; type="osgi.bundle"; version:Version="3.7.2.201511260958-RELEASE"; singleton:="true"]
+    import: (osgi.wiring.package=org.springframework.transaction.support)
+     |
+    export: osgi.wiring.package=org.springframework.transaction.support; uses:=org.springframework.beans.factory
+  org.springframework.transaction [osgi.identity; osgi.identity="org.springframework.transaction"; type="osgi.bundle"; version:Version="3.1.1.RELEASE"]
+    import: (&(osgi.wiring.package=org.springframework.beans.factory)(&(version>=3.1.1)(!(version>=3.1.2))))
+     |
+    export: osgi.wiring.package: org.springframework.beans.factory; uses:=org.springframework.beans
+    export: osgi.wiring.package=org.springframework.beans
+  org.springframework.beans [osgi.identity; osgi.identity="org.springframework.beans"; type="osgi.bundle"; version:Version="3.1.1.RELEASE"]
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY com.springsource.sts.maven 4 0 2016-04-23 19:27:47.094
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: com.springsource.sts.maven [501]
+  Unresolved requirement: Require-Bundle: org.datanucleus.ide.eclipse; resolution:="optional"
+  Unresolved requirement: Require-Bundle: com.springsource.sts.ide.configurator
+    -> Bundle-SymbolicName: com.springsource.sts.ide.configurator; bundle-version="2.9.2.201205071000-RELEASE"; singleton:="true"
+       com.springsource.sts.ide.configurator [496]
+         Unresolved requirement: Require-Bundle: com.springsource.sts.ide.ui
+           -> Bundle-SymbolicName: com.springsource.sts.ide.ui; bundle-version="2.9.2.201205071000-RELEASE"; singleton:="true"
+              com.springsource.sts.ide.ui [500]
+                Unresolved requirement: Require-Bundle: com.springsource.sts.config.core
+                  -> Bundle-SymbolicName: com.springsource.sts.config.core; bundle-version="2.9.2.201205071000-RELEASE"; singleton:="true"
+                     com.springsource.sts.config.core [489]
+                       Unresolved requirement: Require-Bundle: org.springframework.ide.eclipse.batch
+                         -> Bundle-SymbolicName: org.springframework.ide.eclipse.batch; bundle-version="3.7.2.201511260958-RELEASE"; singleton:="true"
+                            org.springframework.ide.eclipse.batch [678]
+                              No resolution report for the bundle.  Bundle was not resolved because of a uses contraint violation.
+  org.osgi.service.resolver.ResolutionException: Uses constraint violation. Unable to resolve resource org.springframework.ide.eclipse.batch [osgi.identity; osgi.identity="org.springframework.ide.eclipse.batch"; type="osgi.bundle"; version:Version="3.7.2.201511260958-RELEASE"; singleton:="true"] because it is exposed to package 'org.springframework.beans' from resources org.springframework.beans [osgi.identity; osgi.identity="org.springframework.beans"; type="osgi.bundle"; version:Version="4.2.3.20151116-RELEASE"] and org.springframework.beans [osgi.identity; osgi.identity="org.springframework.beans"; type="osgi.bundle"; version:Version="3.1.1.RELEASE"] via two dependency chains.
+
+Chain 1:
+  org.springframework.ide.eclipse.batch [osgi.identity; osgi.identity="org.springframework.ide.eclipse.batch"; type="osgi.bundle"; version:Version="3.7.2.201511260958-RELEASE"; singleton:="true"]
+    import: (osgi.wiring.package=org.springframework.beans)
+     |
+    export: osgi.wiring.package: org.springframework.beans
+  org.springframework.beans [osgi.identity; osgi.identity="org.springframework.beans"; type="osgi.bundle"; version:Version="4.2.3.20151116-RELEASE"]
+
+Chain 2:
+  org.springframework.ide.eclipse.batch [osgi.identity; osgi.identity="org.springframework.ide.eclipse.batch"; type="osgi.bundle"; version:Version="3.7.2.201511260958-RELEASE"; singleton:="true"]
+    import: (osgi.wiring.package=org.springframework.transaction.support)
+     |
+    export: osgi.wiring.package=org.springframework.transaction.support; uses:=org.springframework.beans.factory
+  org.springframework.transaction [osgi.identity; osgi.identity="org.springframework.transaction"; type="osgi.bundle"; version:Version="3.1.1.RELEASE"]
+    import: (&(osgi.wiring.package=org.springframework.beans.factory)(&(version>=3.1.1)(!(version>=3.1.2))))
+     |
+    export: osgi.wiring.package: org.springframework.beans.factory; uses:=org.springframework.beans
+    export: osgi.wiring.package=org.springframework.beans
+  org.springframework.beans [osgi.identity; osgi.identity="org.springframework.beans"; type="osgi.bundle"; version:Version="3.1.1.RELEASE"]
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY com.springsource.sts.maven.legacy 4 0 2016-04-23 19:27:47.277
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: com.springsource.sts.maven.legacy [502]
+  Unresolved requirement: Require-Bundle: org.maven.ide.eclipse; bundle-version="0.12.0.20101115-1102"; resolution:="optional"
+  Unresolved requirement: Require-Bundle: org.maven.ide.eclipse.launching; resolution:="optional"
+  Unresolved requirement: Require-Bundle: org.maven.ide.eclipse.maven_embedder; bundle-version="0.12.0.20101115-1102"; resolution:="optional"
+  Unresolved requirement: Require-Bundle: org.maven.ide.eclipse.jdt; bundle-version="0.12.0.20101115-1102"; resolution:="optional"
+  Unresolved requirement: Require-Bundle: org.datanucleus.ide.eclipse; resolution:="optional"
+  Unresolved requirement: Require-Bundle: com.springsource.sts.ide.configurator
+    -> Bundle-SymbolicName: com.springsource.sts.ide.configurator; bundle-version="2.9.2.201205071000-RELEASE"; singleton:="true"
+       com.springsource.sts.ide.configurator [496]
+         Unresolved requirement: Require-Bundle: com.springsource.sts.ide.ui
+           -> Bundle-SymbolicName: com.springsource.sts.ide.ui; bundle-version="2.9.2.201205071000-RELEASE"; singleton:="true"
+              com.springsource.sts.ide.ui [500]
+                Unresolved requirement: Require-Bundle: com.springsource.sts.config.core
+                  -> Bundle-SymbolicName: com.springsource.sts.config.core; bundle-version="2.9.2.201205071000-RELEASE"; singleton:="true"
+                     com.springsource.sts.config.core [489]
+                       Unresolved requirement: Require-Bundle: org.springframework.ide.eclipse.batch
+                         -> Bundle-SymbolicName: org.springframework.ide.eclipse.batch; bundle-version="3.7.2.201511260958-RELEASE"; singleton:="true"
+                            org.springframework.ide.eclipse.batch [678]
+                              No resolution report for the bundle.  Bundle was not resolved because of a uses contraint violation.
+  org.osgi.service.resolver.ResolutionException: Uses constraint violation. Unable to resolve resource org.springframework.ide.eclipse.batch [osgi.identity; osgi.identity="org.springframework.ide.eclipse.batch"; type="osgi.bundle"; version:Version="3.7.2.201511260958-RELEASE"; singleton:="true"] because it is exposed to package 'org.springframework.beans' from resources org.springframework.beans [osgi.identity; osgi.identity="org.springframework.beans"; type="osgi.bundle"; version:Version="4.2.3.20151116-RELEASE"] and org.springframework.beans [osgi.identity; osgi.identity="org.springframework.beans"; type="osgi.bundle"; version:Version="3.1.1.RELEASE"] via two dependency chains.
+
+Chain 1:
+  org.springframework.ide.eclipse.batch [osgi.identity; osgi.identity="org.springframework.ide.eclipse.batch"; type="osgi.bundle"; version:Version="3.7.2.201511260958-RELEASE"; singleton:="true"]
+    import: (osgi.wiring.package=org.springframework.beans)
+     |
+    export: osgi.wiring.package: org.springframework.beans
+  org.springframework.beans [osgi.identity; osgi.identity="org.springframework.beans"; type="osgi.bundle"; version:Version="4.2.3.20151116-RELEASE"]
+
+Chain 2:
+  org.springframework.ide.eclipse.batch [osgi.identity; osgi.identity="org.springframework.ide.eclipse.batch"; type="osgi.bundle"; version:Version="3.7.2.201511260958-RELEASE"; singleton:="true"]
+    import: (osgi.wiring.package=org.springframework.transaction.support)
+     |
+    export: osgi.wiring.package=org.springframework.transaction.support; uses:=org.springframework.beans.factory
+  org.springframework.transaction [osgi.identity; osgi.identity="org.springframework.transaction"; type="osgi.bundle"; version:Version="3.1.1.RELEASE"]
+    import: (&(osgi.wiring.package=org.springframework.beans.factory)(&(version>=3.1.1)(!(version>=3.1.2))))
+     |
+    export: osgi.wiring.package: org.springframework.beans.factory; uses:=org.springframework.beans
+    export: osgi.wiring.package=org.springframework.beans
+  org.springframework.beans [osgi.identity; osgi.identity="org.springframework.beans"; type="osgi.bundle"; version:Version="3.1.1.RELEASE"]
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY com.springsource.sts.quickfix 4 0 2016-04-23 19:27:47.504
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: com.springsource.sts.quickfix [503]
+  Unresolved requirement: Require-Bundle: com.springsource.sts.config.core
+    -> Bundle-SymbolicName: com.springsource.sts.config.core; bundle-version="2.9.2.201205071000-RELEASE"; singleton:="true"
+       com.springsource.sts.config.core [489]
+         Unresolved requirement: Require-Bundle: org.springframework.ide.eclipse.batch
+           -> Bundle-SymbolicName: org.springframework.ide.eclipse.batch; bundle-version="3.7.2.201511260958-RELEASE"; singleton:="true"
+              org.springframework.ide.eclipse.batch [678]
+                No resolution report for the bundle.  Bundle was not resolved because of a uses contraint violation.
+  org.osgi.service.resolver.ResolutionException: Uses constraint violation. Unable to resolve resource org.springframework.ide.eclipse.batch [osgi.identity; osgi.identity="org.springframework.ide.eclipse.batch"; type="osgi.bundle"; version:Version="3.7.2.201511260958-RELEASE"; singleton:="true"] because it is exposed to package 'org.springframework.beans' from resources org.springframework.beans [osgi.identity; osgi.identity="org.springframework.beans"; type="osgi.bundle"; version:Version="4.2.3.20151116-RELEASE"] and org.springframework.beans [osgi.identity; osgi.identity="org.springframework.beans"; type="osgi.bundle"; version:Version="3.1.1.RELEASE"] via two dependency chains.
+
+Chain 1:
+  org.springframework.ide.eclipse.batch [osgi.identity; osgi.identity="org.springframework.ide.eclipse.batch"; type="osgi.bundle"; version:Version="3.7.2.201511260958-RELEASE"; singleton:="true"]
+    import: (osgi.wiring.package=org.springframework.beans)
+     |
+    export: osgi.wiring.package: org.springframework.beans
+  org.springframework.beans [osgi.identity; osgi.identity="org.springframework.beans"; type="osgi.bundle"; version:Version="4.2.3.20151116-RELEASE"]
+
+Chain 2:
+  org.springframework.ide.eclipse.batch [osgi.identity; osgi.identity="org.springframework.ide.eclipse.batch"; type="osgi.bundle"; version:Version="3.7.2.201511260958-RELEASE"; singleton:="true"]
+    import: (osgi.wiring.package=org.springframework.transaction.support)
+     |
+    export: osgi.wiring.package=org.springframework.transaction.support; uses:=org.springframework.beans.factory
+  org.springframework.transaction [osgi.identity; osgi.identity="org.springframework.transaction"; type="osgi.bundle"; version:Version="3.1.1.RELEASE"]
+    import: (&(osgi.wiring.package=org.springframework.beans.factory)(&(version>=3.1.1)(!(version>=3.1.2))))
+     |
+    export: osgi.wiring.package: org.springframework.beans.factory; uses:=org.springframework.beans
+    export: osgi.wiring.package=org.springframework.beans
+  org.springframework.beans [osgi.identity; osgi.identity="org.springframework.beans"; type="osgi.bundle"; version:Version="3.1.1.RELEASE"]
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY com.springsource.sts.roo.core 4 0 2016-04-23 19:27:47.789
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: com.springsource.sts.roo.core [504]
+  Unresolved requirement: Require-Bundle: com.springsource.sts.ide.configurator
+    -> Bundle-SymbolicName: com.springsource.sts.ide.configurator; bundle-version="2.9.2.201205071000-RELEASE"; singleton:="true"
+       com.springsource.sts.ide.configurator [496]
+         Unresolved requirement: Require-Bundle: com.springsource.sts.ide.ui
+           -> Bundle-SymbolicName: com.springsource.sts.ide.ui; bundle-version="2.9.2.201205071000-RELEASE"; singleton:="true"
+              com.springsource.sts.ide.ui [500]
+                Unresolved requirement: Require-Bundle: com.springsource.sts.config.core
+                  -> Bundle-SymbolicName: com.springsource.sts.config.core; bundle-version="2.9.2.201205071000-RELEASE"; singleton:="true"
+                     com.springsource.sts.config.core [489]
+                       Unresolved requirement: Require-Bundle: org.springframework.ide.eclipse.batch
+                         -> Bundle-SymbolicName: org.springframework.ide.eclipse.batch; bundle-version="3.7.2.201511260958-RELEASE"; singleton:="true"
+                            org.springframework.ide.eclipse.batch [678]
+                              No resolution report for the bundle.  Bundle was not resolved because of a uses contraint violation.
+  org.osgi.service.resolver.ResolutionException: Uses constraint violation. Unable to resolve resource org.springframework.ide.eclipse.batch [osgi.identity; osgi.identity="org.springframework.ide.eclipse.batch"; type="osgi.bundle"; version:Version="3.7.2.201511260958-RELEASE"; singleton:="true"] because it is exposed to package 'org.springframework.beans' from resources org.springframework.beans [osgi.identity; osgi.identity="org.springframework.beans"; type="osgi.bundle"; version:Version="4.2.3.20151116-RELEASE"] and org.springframework.beans [osgi.identity; osgi.identity="org.springframework.beans"; type="osgi.bundle"; version:Version="3.1.1.RELEASE"] via two dependency chains.
+
+Chain 1:
+  org.springframework.ide.eclipse.batch [osgi.identity; osgi.identity="org.springframework.ide.eclipse.batch"; type="osgi.bundle"; version:Version="3.7.2.201511260958-RELEASE"; singleton:="true"]
+    import: (osgi.wiring.package=org.springframework.beans)
+     |
+    export: osgi.wiring.package: org.springframework.beans
+  org.springframework.beans [osgi.identity; osgi.identity="org.springframework.beans"; type="osgi.bundle"; version:Version="4.2.3.20151116-RELEASE"]
+
+Chain 2:
+  org.springframework.ide.eclipse.batch [osgi.identity; osgi.identity="org.springframework.ide.eclipse.batch"; type="osgi.bundle"; version:Version="3.7.2.201511260958-RELEASE"; singleton:="true"]
+    import: (osgi.wiring.package=org.springframework.transaction.support)
+     |
+    export: osgi.wiring.package=org.springframework.transaction.support; uses:=org.springframework.beans.factory
+  org.springframework.transaction [osgi.identity; osgi.identity="org.springframework.transaction"; type="osgi.bundle"; version:Version="3.1.1.RELEASE"]
+    import: (&(osgi.wiring.package=org.springframework.beans.factory)(&(version>=3.1.1)(!(version>=3.1.2))))
+     |
+    export: osgi.wiring.package: org.springframework.beans.factory; uses:=org.springframework.beans
+    export: osgi.wiring.package=org.springframework.beans
+  org.springframework.beans [osgi.identity; osgi.identity="org.springframework.beans"; type="osgi.bundle"; version:Version="3.1.1.RELEASE"]
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY com.springsource.sts.roo.ui 4 0 2016-04-23 19:27:48.209
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: com.springsource.sts.roo.ui [505]
+  Unresolved requirement: Require-Bundle: org.maven.ide.eclipse; bundle-version="0.12.1"; resolution:="optional"
+  Unresolved requirement: Require-Bundle: org.maven.ide.eclipse.jdt; bundle-version="0.12.1"; resolution:="optional"
+  Unresolved requirement: Require-Bundle: org.maven.ide.eclipse.maven_embedder; bundle-version="0.12.1"; resolution:="optional"
+  Unresolved requirement: Require-Bundle: com.springsource.sts.maven
+    -> Bundle-SymbolicName: com.springsource.sts.maven; bundle-version="2.9.2.201205071000-RELEASE"; singleton:="true"
+       com.springsource.sts.maven [501]
+         Unresolved requirement: Require-Bundle: org.datanucleus.ide.eclipse; resolution:="optional"
+         Unresolved requirement: Require-Bundle: com.springsource.sts.ide.configurator
+           -> Bundle-SymbolicName: com.springsource.sts.ide.configurator; bundle-version="2.9.2.201205071000-RELEASE"; singleton:="true"
+              com.springsource.sts.ide.configurator [496]
+                Unresolved requirement: Require-Bundle: com.springsource.sts.ide.ui
+                  -> Bundle-SymbolicName: com.springsource.sts.ide.ui; bundle-version="2.9.2.201205071000-RELEASE"; singleton:="true"
+                     com.springsource.sts.ide.ui [500]
+                       Unresolved requirement: Require-Bundle: com.springsource.sts.config.core
+                         -> Bundle-SymbolicName: com.springsource.sts.config.core; bundle-version="2.9.2.201205071000-RELEASE"; singleton:="true"
+                            com.springsource.sts.config.core [489]
+                              Unresolved requirement: Require-Bundle: org.springframework.ide.eclipse.batch
+                                -> Bundle-SymbolicName: org.springframework.ide.eclipse.batch; bundle-version="3.7.2.201511260958-RELEASE"; singleton:="true"
+                                   org.springframework.ide.eclipse.batch [678]
+                                     No resolution report for the bundle.  Unresolved requirement: Import-Package: com.springsource.sts.maven; resolution:="optional"
+    -> Export-Package: com.springsource.sts.maven; bundle-symbolic-name="com.springsource.sts.maven"; bundle-version="2.9.2.201205071000-RELEASE"; version="0.0.0"
+  Unresolved requirement: Require-Bundle: com.springsource.sts.maven.legacy; bundle-version="2.8.0"; resolution:="optional"
+    -> Bundle-SymbolicName: com.springsource.sts.maven.legacy; bundle-version="2.9.2.201205071000-RELEASE"; singleton:="true"
+       com.springsource.sts.maven.legacy [502]
+         Unresolved requirement: Require-Bundle: org.maven.ide.eclipse; bundle-version="0.12.0.20101115-1102"; resolution:="optional"
+         Unresolved requirement: Require-Bundle: org.maven.ide.eclipse.launching; resolution:="optional"
+         Unresolved requirement: Require-Bundle: org.maven.ide.eclipse.maven_embedder; bundle-version="0.12.0.20101115-1102"; resolution:="optional"
+         Unresolved requirement: Require-Bundle: org.maven.ide.eclipse.jdt; bundle-version="0.12.0.20101115-1102"; resolution:="optional"
+         Unresolved requirement: Require-Bundle: org.datanucleus.ide.eclipse; resolution:="optional"
+         Unresolved requirement: Require-Bundle: com.springsource.sts.ide.configurator
+           -> Bundle-SymbolicName: com.springsource.sts.ide.configurator; bundle-version="2.9.2.201205071000-RELEASE"; singleton:="true"
+  Unresolved requirement: Require-Bundle: com.springsource.sts.roo.core
+    -> Bundle-SymbolicName: com.springsource.sts.roo.core; bundle-version="2.9.2.201205071000-RELEASE"; singleton:="true"
+       com.springsource.sts.roo.core [504]
+         Unresolved requirement: Require-Bundle: com.springsource.sts.ide.configurator
+           -> Bundle-SymbolicName: com.springsource.sts.ide.configurator; bundle-version="2.9.2.201205071000-RELEASE"; singleton:="true"
+  Bundle was not resolved because of a uses contraint violation.
+  org.osgi.service.resolver.ResolutionException: Uses constraint violation. Unable to resolve resource org.springframework.ide.eclipse.batch [osgi.identity; osgi.identity="org.springframework.ide.eclipse.batch"; type="osgi.bundle"; version:Version="3.7.2.201511260958-RELEASE"; singleton:="true"] because it is exposed to package 'org.springframework.beans' from resources org.springframework.beans [osgi.identity; osgi.identity="org.springframework.beans"; type="osgi.bundle"; version:Version="4.2.3.20151116-RELEASE"] and org.springframework.beans [osgi.identity; osgi.identity="org.springframework.beans"; type="osgi.bundle"; version:Version="3.1.1.RELEASE"] via two dependency chains.
+
+Chain 1:
+  org.springframework.ide.eclipse.batch [osgi.identity; osgi.identity="org.springframework.ide.eclipse.batch"; type="osgi.bundle"; version:Version="3.7.2.201511260958-RELEASE"; singleton:="true"]
+    import: (osgi.wiring.package=org.springframework.beans)
+     |
+    export: osgi.wiring.package: org.springframework.beans
+  org.springframework.beans [osgi.identity; osgi.identity="org.springframework.beans"; type="osgi.bundle"; version:Version="4.2.3.20151116-RELEASE"]
+
+Chain 2:
+  org.springframework.ide.eclipse.batch [osgi.identity; osgi.identity="org.springframework.ide.eclipse.batch"; type="osgi.bundle"; version:Version="3.7.2.201511260958-RELEASE"; singleton:="true"]
+    import: (osgi.wiring.package=org.springframework.transaction.support)
+     |
+    export: osgi.wiring.package=org.springframework.transaction.support; uses:=org.springframework.beans.factory
+  org.springframework.transaction [osgi.identity; osgi.identity="org.springframework.transaction"; type="osgi.bundle"; version:Version="3.1.1.RELEASE"]
+    import: (&(osgi.wiring.package=org.springframework.beans.factory)(&(version>=3.1.1)(!(version>=3.1.2))))
+     |
+    export: osgi.wiring.package: org.springframework.beans.factory; uses:=org.springframework.beans
+    export: osgi.wiring.package=org.springframework.beans
+  org.springframework.beans [osgi.identity; osgi.identity="org.springframework.beans"; type="osgi.bundle"; version:Version="3.1.1.RELEASE"]
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY com.springsource.sts.server.tc.ui 4 0 2016-04-23 19:27:48.591
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: com.springsource.sts.server.tc.ui [511]
+  Unresolved requirement: Require-Bundle: com.springsource.sts.ide.configurator
+    -> Bundle-SymbolicName: com.springsource.sts.ide.configurator; bundle-version="2.9.2.201205071000-RELEASE"; singleton:="true"
+       com.springsource.sts.ide.configurator [496]
+         Unresolved requirement: Require-Bundle: com.springsource.sts.ide.ui
+           -> Bundle-SymbolicName: com.springsource.sts.ide.ui; bundle-version="2.9.2.201205071000-RELEASE"; singleton:="true"
+              com.springsource.sts.ide.ui [500]
+                Unresolved requirement: Require-Bundle: com.springsource.sts.config.core
+                  -> Bundle-SymbolicName: com.springsource.sts.config.core; bundle-version="2.9.2.201205071000-RELEASE"; singleton:="true"
+                     com.springsource.sts.config.core [489]
+                       Unresolved requirement: Require-Bundle: org.springframework.ide.eclipse.batch
+                         -> Bundle-SymbolicName: org.springframework.ide.eclipse.batch; bundle-version="3.7.2.201511260958-RELEASE"; singleton:="true"
+                            org.springframework.ide.eclipse.batch [678]
+                              No resolution report for the bundle.  Bundle was not resolved because of a uses contraint violation.
+  org.osgi.service.resolver.ResolutionException: Uses constraint violation. Unable to resolve resource org.springframework.ide.eclipse.batch [osgi.identity; osgi.identity="org.springframework.ide.eclipse.batch"; type="osgi.bundle"; version:Version="3.7.2.201511260958-RELEASE"; singleton:="true"] because it is exposed to package 'org.springframework.beans' from resources org.springframework.beans [osgi.identity; osgi.identity="org.springframework.beans"; type="osgi.bundle"; version:Version="4.2.3.20151116-RELEASE"] and org.springframework.beans [osgi.identity; osgi.identity="org.springframework.beans"; type="osgi.bundle"; version:Version="3.1.1.RELEASE"] via two dependency chains.
+
+Chain 1:
+  org.springframework.ide.eclipse.batch [osgi.identity; osgi.identity="org.springframework.ide.eclipse.batch"; type="osgi.bundle"; version:Version="3.7.2.201511260958-RELEASE"; singleton:="true"]
+    import: (osgi.wiring.package=org.springframework.beans)
+     |
+    export: osgi.wiring.package: org.springframework.beans
+  org.springframework.beans [osgi.identity; osgi.identity="org.springframework.beans"; type="osgi.bundle"; version:Version="4.2.3.20151116-RELEASE"]
+
+Chain 2:
+  org.springframework.ide.eclipse.batch [osgi.identity; osgi.identity="org.springframework.ide.eclipse.batch"; type="osgi.bundle"; version:Version="3.7.2.201511260958-RELEASE"; singleton:="true"]
+    import: (osgi.wiring.package=org.springframework.transaction.support)
+     |
+    export: osgi.wiring.package=org.springframework.transaction.support; uses:=org.springframework.beans.factory
+  org.springframework.transaction [osgi.identity; osgi.identity="org.springframework.transaction"; type="osgi.bundle"; version:Version="3.1.1.RELEASE"]
+    import: (&(osgi.wiring.package=org.springframework.beans.factory)(&(version>=3.1.1)(!(version>=3.1.2))))
+     |
+    export: osgi.wiring.package: org.springframework.beans.factory; uses:=org.springframework.beans
+    export: osgi.wiring.package=org.springframework.beans
+  org.springframework.beans [osgi.identity; osgi.identity="org.springframework.beans"; type="osgi.bundle"; version:Version="3.1.1.RELEASE"]
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY com.springsource.sts.server.tc.vmware.ui 4 0 2016-04-23 19:27:48.885
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: com.springsource.sts.server.tc.vmware.ui [513]
+  Unresolved requirement: Require-Bundle: com.springsource.sts.server.tc.ui
+    -> Bundle-SymbolicName: com.springsource.sts.server.tc.ui; bundle-version="2.9.2.201205071000-RELEASE"; singleton:="true"
+       com.springsource.sts.server.tc.ui [511]
+         Unresolved requirement: Require-Bundle: com.springsource.sts.ide.configurator
+           -> Bundle-SymbolicName: com.springsource.sts.ide.configurator; bundle-version="2.9.2.201205071000-RELEASE"; singleton:="true"
+              com.springsource.sts.ide.configurator [496]
+                Unresolved requirement: Require-Bundle: com.springsource.sts.ide.ui
+                  -> Bundle-SymbolicName: com.springsource.sts.ide.ui; bundle-version="2.9.2.201205071000-RELEASE"; singleton:="true"
+                     com.springsource.sts.ide.ui [500]
+                       Unresolved requirement: Require-Bundle: com.springsource.sts.config.core
+                         -> Bundle-SymbolicName: com.springsource.sts.config.core; bundle-version="2.9.2.201205071000-RELEASE"; singleton:="true"
+                            com.springsource.sts.config.core [489]
+                              Unresolved requirement: Require-Bundle: org.springframework.ide.eclipse.batch
+                                -> Bundle-SymbolicName: org.springframework.ide.eclipse.batch; bundle-version="3.7.2.201511260958-RELEASE"; singleton:="true"
+                                   org.springframework.ide.eclipse.batch [678]
+                                     No resolution report for the bundle.  Bundle was not resolved because of a uses contraint violation.
+  org.osgi.service.resolver.ResolutionException: Uses constraint violation. Unable to resolve resource org.springframework.ide.eclipse.batch [osgi.identity; osgi.identity="org.springframework.ide.eclipse.batch"; type="osgi.bundle"; version:Version="3.7.2.201511260958-RELEASE"; singleton:="true"] because it is exposed to package 'org.springframework.beans' from resources org.springframework.beans [osgi.identity; osgi.identity="org.springframework.beans"; type="osgi.bundle"; version:Version="4.2.3.20151116-RELEASE"] and org.springframework.beans [osgi.identity; osgi.identity="org.springframework.beans"; type="osgi.bundle"; version:Version="3.1.1.RELEASE"] via two dependency chains.
+
+Chain 1:
+  org.springframework.ide.eclipse.batch [osgi.identity; osgi.identity="org.springframework.ide.eclipse.batch"; type="osgi.bundle"; version:Version="3.7.2.201511260958-RELEASE"; singleton:="true"]
+    import: (osgi.wiring.package=org.springframework.beans)
+     |
+    export: osgi.wiring.package: org.springframework.beans
+  org.springframework.beans [osgi.identity; osgi.identity="org.springframework.beans"; type="osgi.bundle"; version:Version="4.2.3.20151116-RELEASE"]
+
+Chain 2:
+  org.springframework.ide.eclipse.batch [osgi.identity; osgi.identity="org.springframework.ide.eclipse.batch"; type="osgi.bundle"; version:Version="3.7.2.201511260958-RELEASE"; singleton:="true"]
+    import: (osgi.wiring.package=org.springframework.transaction.support)
+     |
+    export: osgi.wiring.package=org.springframework.transaction.support; uses:=org.springframework.beans.factory
+  org.springframework.transaction [osgi.identity; osgi.identity="org.springframework.transaction"; type="osgi.bundle"; version:Version="3.1.1.RELEASE"]
+    import: (&(osgi.wiring.package=org.springframework.beans.factory)(&(version>=3.1.1)(!(version>=3.1.2))))
+     |
+    export: osgi.wiring.package: org.springframework.beans.factory; uses:=org.springframework.beans
+    export: osgi.wiring.package=org.springframework.beans
+  org.springframework.beans [osgi.identity; osgi.identity="org.springframework.beans"; type="osgi.bundle"; version:Version="3.1.1.RELEASE"]
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY com.springsource.sts.wizard 4 0 2016-04-23 19:27:49.186
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: com.springsource.sts.wizard [517]
+  Unresolved requirement: Require-Bundle: com.springsource.sts.ide.ui
+    -> Bundle-SymbolicName: com.springsource.sts.ide.ui; bundle-version="2.9.2.201205071000-RELEASE"; singleton:="true"
+       com.springsource.sts.ide.ui [500]
+         Unresolved requirement: Require-Bundle: com.springsource.sts.config.core
+           -> Bundle-SymbolicName: com.springsource.sts.config.core; bundle-version="2.9.2.201205071000-RELEASE"; singleton:="true"
+              com.springsource.sts.config.core [489]
+                Unresolved requirement: Require-Bundle: org.springframework.ide.eclipse.batch
+                  -> Bundle-SymbolicName: org.springframework.ide.eclipse.batch; bundle-version="3.7.2.201511260958-RELEASE"; singleton:="true"
+                     org.springframework.ide.eclipse.batch [678]
+                       No resolution report for the bundle.  Unresolved requirement: Require-Bundle: com.springsource.sts.config.core
+    -> Bundle-SymbolicName: com.springsource.sts.config.core; bundle-version="2.9.2.201205071000-RELEASE"; singleton:="true"
+  Unresolved requirement: Require-Bundle: com.springsource.sts.quickfix
+    -> Bundle-SymbolicName: com.springsource.sts.quickfix; bundle-version="2.9.2.201205071000-RELEASE"; singleton:="true"
+       com.springsource.sts.quickfix [503]
+         Unresolved requirement: Require-Bundle: com.springsource.sts.config.core
+           -> Bundle-SymbolicName: com.springsource.sts.config.core; bundle-version="2.9.2.201205071000-RELEASE"; singleton:="true"
+  Bundle was not resolved because of a uses contraint violation.
+  org.osgi.service.resolver.ResolutionException: Uses constraint violation. Unable to resolve resource org.springframework.ide.eclipse.batch [osgi.identity; osgi.identity="org.springframework.ide.eclipse.batch"; type="osgi.bundle"; version:Version="3.7.2.201511260958-RELEASE"; singleton:="true"] because it is exposed to package 'org.springframework.beans' from resources org.springframework.beans [osgi.identity; osgi.identity="org.springframework.beans"; type="osgi.bundle"; version:Version="4.2.3.20151116-RELEASE"] and org.springframework.beans [osgi.identity; osgi.identity="org.springframework.beans"; type="osgi.bundle"; version:Version="3.1.1.RELEASE"] via two dependency chains.
+
+Chain 1:
+  org.springframework.ide.eclipse.batch [osgi.identity; osgi.identity="org.springframework.ide.eclipse.batch"; type="osgi.bundle"; version:Version="3.7.2.201511260958-RELEASE"; singleton:="true"]
+    import: (osgi.wiring.package=org.springframework.beans)
+     |
+    export: osgi.wiring.package: org.springframework.beans
+  org.springframework.beans [osgi.identity; osgi.identity="org.springframework.beans"; type="osgi.bundle"; version:Version="4.2.3.20151116-RELEASE"]
+
+Chain 2:
+  org.springframework.ide.eclipse.batch [osgi.identity; osgi.identity="org.springframework.ide.eclipse.batch"; type="osgi.bundle"; version:Version="3.7.2.201511260958-RELEASE"; singleton:="true"]
+    import: (osgi.wiring.package=org.springframework.transaction.support)
+     |
+    export: osgi.wiring.package=org.springframework.transaction.support; uses:=org.springframework.beans.factory
+  org.springframework.transaction [osgi.identity; osgi.identity="org.springframework.transaction"; type="osgi.bundle"; version:Version="3.1.1.RELEASE"]
+    import: (&(osgi.wiring.package=org.springframework.beans.factory)(&(version>=3.1.1)(!(version>=3.1.2))))
+     |
+    export: osgi.wiring.package: org.springframework.beans.factory; uses:=org.springframework.beans
+    export: osgi.wiring.package=org.springframework.beans
+  org.springframework.beans [osgi.identity; osgi.identity="org.springframework.beans"; type="osgi.bundle"; version:Version="3.1.1.RELEASE"]
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY org.springframework.ide.eclipse.batch 4 0 2016-04-23 19:27:49.404
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.springframework.ide.eclipse.batch [678]
+  Bundle was not resolved because of a uses contraint violation.
+  org.osgi.service.resolver.ResolutionException: Uses constraint violation. Unable to resolve resource org.springframework.ide.eclipse.batch [osgi.identity; osgi.identity="org.springframework.ide.eclipse.batch"; type="osgi.bundle"; version:Version="3.7.2.201511260958-RELEASE"; singleton:="true"] because it is exposed to package 'org.springframework.beans' from resources org.springframework.beans [osgi.identity; osgi.identity="org.springframework.beans"; type="osgi.bundle"; version:Version="4.2.3.20151116-RELEASE"] and org.springframework.beans [osgi.identity; osgi.identity="org.springframework.beans"; type="osgi.bundle"; version:Version="3.1.1.RELEASE"] via two dependency chains.
+
+Chain 1:
+  org.springframework.ide.eclipse.batch [osgi.identity; osgi.identity="org.springframework.ide.eclipse.batch"; type="osgi.bundle"; version:Version="3.7.2.201511260958-RELEASE"; singleton:="true"]
+    import: (osgi.wiring.package=org.springframework.beans)
+     |
+    export: osgi.wiring.package: org.springframework.beans
+  org.springframework.beans [osgi.identity; osgi.identity="org.springframework.beans"; type="osgi.bundle"; version:Version="4.2.3.20151116-RELEASE"]
+
+Chain 2:
+  org.springframework.ide.eclipse.batch [osgi.identity; osgi.identity="org.springframework.ide.eclipse.batch"; type="osgi.bundle"; version:Version="3.7.2.201511260958-RELEASE"; singleton:="true"]
+    import: (osgi.wiring.package=org.springframework.transaction.support)
+     |
+    export: osgi.wiring.package=org.springframework.transaction.support; uses:=org.springframework.beans.factory
+  org.springframework.transaction [osgi.identity; osgi.identity="org.springframework.transaction"; type="osgi.bundle"; version:Version="3.1.1.RELEASE"]
+    import: (&(osgi.wiring.package=org.springframework.beans.factory)(&(version>=3.1.1)(!(version>=3.1.2))))
+     |
+    export: osgi.wiring.package: org.springframework.beans.factory; uses:=org.springframework.beans
+    export: osgi.wiring.package=org.springframework.beans
+  org.springframework.beans [osgi.identity; osgi.identity="org.springframework.beans"; type="osgi.bundle"; version:Version="3.1.1.RELEASE"]
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-04-23 19:28:11.466
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Ammad'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
