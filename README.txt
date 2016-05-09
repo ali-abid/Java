@@ -18,3 +18,6 @@ http://docs.oracle.com/javase/tutorial/essential/concurrency/runthread.html
 
 Simple Questions:
 http://www.javatpoint.com/java-programs 
+
+Collection Tutorial
+http://beginnersbook.com/2013/12/difference-between-arraylist-and-linkedlist-in-java/ 
