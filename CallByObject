@@ -1,0 +1,17 @@
+//Call by Object in Java.
+
+class PassObj{
+	int x = 100;
+	void swap(PassObj o){
+		o.x = o.x + 100;
+	}
+}
+
+public class CallByObj{
+	public static void main(String args[]){
+		PassObj pO = new PassObj();
+		pO.swap(pO);
+		System.out.println("Actual value of x : "+ pO.x);
+	}
+
+}
